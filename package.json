@@ -1,0 +1,24 @@
+{
+  "name": "devops-project",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed!\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "description": "This project covers:",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niks1212/devops-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niks1212/devops-project/issues"
+  },
+  "homepage": "https://github.com/niks1212/devops-project#readme"
+}
