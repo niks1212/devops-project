@@ -2,10 +2,12 @@
 const app = express();
 const PORT = 3000;
 
+// Home route
 app.get('/', (req, res) => {
     res.send('Hello DevOps!');
 });
 
+// Start server
 app.listen(PORT, () => {
-    console.log(Server running on port );
+    console.log(`Server running on port ${PORT}`);
 });
