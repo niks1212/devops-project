@@ -1,49 +1,16 @@
-<<<<<<< HEAD
-name: CI/CD Pipeline
+name: CI_CD-Pipeline
 
-=======
-﻿name: CI/CD Pipeline
->>>>>>> c751a54 (Add CI/CD workflow)
 on:
   push:
     branches:
       - main
-<<<<<<< HEAD
-      - 'feature/**'
-=======
-      - "feature/**"
->>>>>>> c751a54 (Add CI/CD workflow)
+      - "feature/**" # Optional: triggers on feature branches too
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-<<<<<<< HEAD
-      # 1️⃣ Checkout code
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # 2️⃣ Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # 4️⃣ Run tests
-      - name: Run tests
-        run: npm test
-
-      # 5️⃣ Setup Docker Buildx
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # 6️⃣ Login to DockerHub
-=======
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -61,27 +28,18 @@ jobs:
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
 
->>>>>>> c751a54 (Add CI/CD workflow)
       - name: DockerHub Login
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: niks1212
+          password: Harshita@1112
 
-<<<<<<< HEAD
-      # 7️⃣ Extract commit SHA and branch name
-=======
->>>>>>> c751a54 (Add CI/CD workflow)
       - name: Extract Git info
         id: vars
         run: |
           echo "COMMIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-<<<<<<< HEAD
-      # 8️⃣ Build and push Docker image
-=======
->>>>>>> c751a54 (Add CI/CD workflow)
       - name: Build and Push Docker image
         uses: docker/build-push-action@v4
         with:
@@ -89,5 +47,5 @@ jobs:
           push: true
           tags: |
             niks1212/devops-node-app:latest
-            niks1212/devops-node-app:${{ env.BRANCH_NAME }}
+            niks1212/devops-node-app:${{ env.main }}
             niks1212/devops-node-app:${{ env.COMMIT_SHA }}
